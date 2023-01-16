@@ -1,0 +1,8 @@
+type SetHelloCalled @entity(immutable: true) {
+  id: Bytes!
+  message: String! # string
+  sender: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

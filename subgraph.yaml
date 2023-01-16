@@ -1,0 +1,23 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: HelloWorld
+    network: mainnet
+    source:
+      address: "0x790e6b1CDA628b614B68f1Be745dbDf25d7A53a7"
+      abi: HelloWorld
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - SetHelloCalled
+      abis:
+        - name: HelloWorld
+          file: ./abis/HelloWorld.json
+      eventHandlers:
+        - event: SetHelloCalled(string,address)
+          handler: handleSetHelloCalled
+      file: ./src/hello-world.ts
